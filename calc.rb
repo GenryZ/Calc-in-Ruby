@@ -7,21 +7,11 @@ require 'rubygems'
 require 'sinatra'
 
 get '/calculator' do
-'
-<form action="/add" method="post" accept-charset="utf-8">
-	<input type="text" name="num1" value="" id="num1"> +
-	<input type="text" name="num2" value="" id="num2">
-	<input type="submit" value="Add">
-</form>
-
-<form action="/subtract" method="post" accept-charset="utf-8">
-	<input type="text" name="num1" value="" id="num1"> -
-	<input type="text" name="num2" value="" id="num2">
-	<input type="submit" value="Subtract">
-</form>
-'
+	erb :calculator
 end
-
+get '/add' do
+	erb :add
+end
 
 post '/add' do
   "#{params[:num1]} plus #{params[:num2]} = #{params[:num1].to_i + params[:num2].to_i}
